@@ -1,0 +1,97 @@
+//Nama : Priesma wiyadhika
+//Npm : 227064516113
+package uts.algoritma;
+
+import java.util.Scanner; //memperkelompokan kelas folder untuk membuat program
+public class UTS { //import scanner 
+public class Calculator { //membuat scanner baru dengan nama console
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Masukkan angka pertama: "); //mencetak output ke user
+        double angka1 = input.nextDouble();
+
+        System.out.print("Masukkan angka kedua: ");
+        double angka2 = input.nextDouble();
+
+        System.out.print("Masukkan operator (+, -, *, /): ");
+        char operator = input.next().charAt(0);
+
+        double hasil;
+
+        // Percabangan menggunakan switch untuk menentukan operasi yang sesuai berdasarkan operator yang dimasukkan
+        switch (operator) {
+            case '+':
+                hasil = angka1 + angka2;
+                System.out.println("Hasil penjumlahan: " + hasil);
+                break;
+            case '-':
+                hasil = angka1 - angka2;
+                System.out.println("Hasil pengurangan: " + hasil);
+                break;
+            case '*':
+                hasil = angka1 * angka2;
+                System.out.println("Hasil perkalian: " + hasil);
+                break;
+            case '/':
+                // Menangani pembagian dengan nol
+                if (angka2 != 0) {
+                    hasil = angka1 / angka2;
+                    System.out.println("Hasil pembagian: " + hasil);
+                } else {
+                    System.out.println("Error: Pembagian dengan nol tidak valid!");
+                }
+                break;
+            default:
+                System.out.println("Error: Operator yang dimasukkan tidak valid!");
+        }
+
+        // Perulangan menggunakan for untuk mengulang program
+        System.out.print("Apakah Anda ingin melakukan operasi lagi? (ya/tidak): ");
+        String ulang = input.next();
+
+        for (; ulang.equalsIgnoreCase("ya"); ) {
+            System.out.print("Masukkan angka pertama: ");
+            angka1 = input.nextDouble();
+
+            System.out.print("Masukkan angka kedua: ");
+            angka2 = input.nextDouble();
+
+            System.out.print("Masukkan operator (+, -, *, /): ");
+            operator = input.next().charAt(0);
+
+            // Percabangan menggunakan switch
+            switch (operator) {
+                case '+':
+                    hasil = angka1 + angka2;
+                    System.out.println("Hasil penjumlahan: " + hasil);
+                    break;
+                case '-':
+                    hasil = angka1 - angka2;
+                    System.out.println("Hasil pengurangan: " + hasil);
+                    break;
+                case '*':
+                    hasil = angka1 * angka2;
+                    System.out.println("Hasil perkalian: " + hasil);
+                    break;
+                case '/':
+                    if (angka2 != 0) {
+                        hasil = angka1 / angka2;
+                        System.out.println("Hasil pembagian: " + hasil);
+                    } else {
+                        System.out.println("Error: Pembagian dengan nol tidak valid!");
+                    }
+                    break;
+                default:
+                    System.out.println("Error: Operator yang dimasukkan tidak valid!");
+            }
+
+            System.out.print("Apakah Anda ingin melakukan operasi lagi? (ya/tidak): ");
+            ulang = input.next();
+        }
+
+        System.out.println("Terima kasih telah menggunakan kalkulator!");
+    }
+}
+    
+}
